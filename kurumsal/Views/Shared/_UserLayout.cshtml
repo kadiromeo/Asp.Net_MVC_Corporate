@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+@Html.Partial("/Views/UIPartial/_UIHeaderPartial.cshtml")
+
+<body>
+    <div id="wrapper">
+        <!-- start header -->
+        @Html.Partial("/Views/UIPartial/_UINavbarPartial.cshtml")
+
+        <!-- end header -->
+        @RenderBody()
+
+        @Html.Partial("/Views/UIPartial/_UIFooterPartial.cshtml")
+    </div>
+    <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+ 
+    @Html.Partial("/Views/UIPartial/_UIScriptPartial.cshtml")
+</body>
+
+</html>
+

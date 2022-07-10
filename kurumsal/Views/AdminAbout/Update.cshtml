@@ -1,0 +1,44 @@
+﻿@model dentexpert.Models.About
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <h2>Düzenle</h2>
+        @using (Html.BeginForm("Update", "AdminAbout", FormMethod.Post, new { enctype = "multipart/form-data"
+        }))
+        {
+        <div>
+            <label>Başlık</label>
+            @Html.TextAreaFor(m => m.title, new { @class = "form-control" })
+            <div class="col-md-10">
+                @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div>
+            <label>İçerik</label>
+            @Html.TextAreaFor(m => m.description, new { @class = "form-control" })
+            <div class="col-md-10">
+                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div>
+            <label>Foto</label>
+            <input type="file" name="image" class="form-control"/>
+            <div class="col-md-10">
+                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-info">
+                <span>Düzenle</span>
+            </button>
+        </div>
+        }
+    </div>
+    <div class="col-md-3"></div>
+</div>

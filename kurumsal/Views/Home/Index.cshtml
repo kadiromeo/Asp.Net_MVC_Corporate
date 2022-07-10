@@ -1,0 +1,144 @@
+﻿@model dentexpert.Models.sliderServices
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<!-- start slider -->
+<section id="featured">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div id="main-slider" class="flexslider">
+                    <ul class="slides">
+                        @foreach (var item in Model.Sliders)
+                        {
+                            <li>
+                                <img src="@item.image" alt="" height="500" />
+                                <div class="flex-caption">
+                                    <h3>@item.title</h3>
+                                    <p>@item.description</p>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--end slider-->
+
+<!--start services-->
+<section id="content">
+    <div class="container">
+        <!-- end divider -->
+        <!-- Portfolio Projects -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="heading">HİZMETLERİMİZ</h4>
+                <div class="row">
+                    <section id="projects">
+                        <ul id="thumbs" class="portfolio">
+                            @foreach (var item in Model.Services)
+                            {
+                                <!-- Item Project and Filter Name -->
+                                <li class="col-lg-3 design" data-id="id-0" data-type="web">
+
+                                    <div class="item-thumbs">
+                                        <!-- Fancybox - Gallery Enabled - Title - Full Image -->
+                                        <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="@item.title" href="@item.image">
+                                            <span class="overlay-img"></span>
+                                            <span class="overlay-img-thumb font-icon-plus"></span>
+                                        </a>
+                                        <!-- Thumb Image and Description -->
+                                        <img src="@item.image" alt="@item.description">
+                                    </div>
+
+
+
+                                </li>
+
+                            }
+
+                            <!-- End Item Project -->
+                            <!-- Item Project and Filter Name -->
+
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!--end services-->
+
+
+<!--start about-->
+<section id="content">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="clearfix">
+                </div>
+                <div class="row" id="abo">
+                    @foreach (var item in Model.Abouts)
+                    {
+                        <article class="aligncenter border-3" >
+                            <div class="">
+                                <div class="post-heading">
+                                    <h3 class="text-center">@item.title</h3>
+                                </div>
+                            </div>
+                            <p>
+                                @item.description
+                            </p>
+                            <p>
+                                <a href="/About/Index">Daha Fazlası</a>
+                            </p>
+
+                        </article>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--end about-->
+
+
+<!-- start comment -->
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <p class="text-right">YORUMLAR</p>
+                <div class="text-center">
+
+                    @foreach (var item in Model.Comments)
+                    {
+                        <div>
+                            <img src="~/Content/img/avatar.png" class="circle" width="50" height="50" />
+                            <p>@item.description</p>
+                            <strong>@item.nameSurname</strong>
+                        </div>
+                        <hr />
+                    }
+
+                </div>
+                <div>
+                    <a href="/Comment/Comment">Yorum yapmak için tıklayınız...</a>
+                </div>
+            </div>
+
+            <div class="col-md-3"></div>
+        
+        </div>
+    </div>
+</section>
+<!-- end comment -->

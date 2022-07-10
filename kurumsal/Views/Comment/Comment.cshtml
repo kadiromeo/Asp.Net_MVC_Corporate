@@ -1,0 +1,96 @@
+﻿@model List<dentexpert.Models.Comment>
+
+@{
+    ViewBag.Title = "Comment";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <section id="inner-headline">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="breadcrumb">
+                                <li><a href="/Home/Index"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                                <li class="active">Yorumlar</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="col-lg-12">
+                <section id="featured">
+                    <!-- start slider -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <!-- Slider -->
+                                <div id="main-slider" class="flexslider">
+                                    <ul class="slides">
+                                        @foreach (var item in Model)
+                                        {
+                                            <li>
+                                                <img src="~/Content/img/slides/1.jpg" alt="" style="opacity:0.2" />
+                                                <div class="flex-caption">
+                                                    <h4>Misafirlerimizin Yorumları</h4>
+                                                    <p>@item.description </p>
+                                                    <strong>@item.nameSurname</strong>
+
+                                                </div>
+                                            </li>
+
+                                        }
+
+                                    </ul>
+                                </div>
+                                <!-- end slider -->
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+
+                <div class="clearfix">
+                </div>
+                <div class="row aligncenter">
+                    @using (Html.BeginForm("Comment", "Comment", FormMethod.Post))
+                    {
+                        <form action="" method="post" role="form" class="contactForm">
+                            <h4 class="text-center">Yorum Yap!</h4>
+                            <div id="sendmessage">Your message has been sent. Thank you!</div>
+                            <div id="errormessage"></div>
+
+                            <div class="form-group">
+                                <input type="text" name="nameSurname" class="form-control" placeholder="Ad Soyad" data-rule="minlen:4" data-msg="Please enter at least 4 chars"  required="" />
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" placeholder="Emailiniz" data-rule="email" data-msg="Please enter a valid email" required=""/>
+                                <div class="validation"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea class="form-control" name="description" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Yorumunuz" required=""></textarea>
+                                <div class="validation"></div>
+                            </div>
+
+                            <div class="text-center"><button type="submit" class="btn btn-primary">Yorum Yap</button></div>
+                        </form>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+

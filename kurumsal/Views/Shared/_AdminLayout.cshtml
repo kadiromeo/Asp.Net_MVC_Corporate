@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<title>@ViewBag.Title</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" >
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+<body>
+
+    <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
+        <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
+        <a href="/Admin/changePassword" class="w3-bar-item w3-button fas fa-user-circle">@Session["Admin"]</a>
+        <a href="#" class="w3-bar-item w3-button">Site Kimliği</a>
+        <a href="/AdminSlider/Index" class="w3-bar-item w3-button">Slider</a>
+        <a href="/AdminServices/Index" class="w3-bar-item w3-button">Hizmetler</a>
+        <a href="/AdminComment/Index" class="w3-bar-item w3-button">Yorumlar</a>
+        <a href="/AdminAbout/Index" class="w3-bar-item w3-button">Hakkımızda</a>
+        <a href="/Home/Index" class="w3-bar-item w3-button">Siteye Git</a>
+        <a href="/Admin/SingOut" class="w3-bar-item w3-button">Çıkış</a>
+    </div>
+
+    @RenderBody()
+
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+
+    </script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

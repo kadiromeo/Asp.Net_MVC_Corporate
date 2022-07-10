@@ -1,0 +1,56 @@
+﻿@model dentexpert.Models.Comment
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <h2>Detay</h2>
+
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                   <label>Ad Soyad</label>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.nameSurname)
+                </dd>
+
+                <dt>
+                    <label>Email</label>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.email)
+                </dd>
+
+                <dt>
+                    <label>Yorum</label>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.description)
+                </dd>
+
+                <dt>
+                    <label>Durum</label>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.status)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Düzenle", "Edit", new { id = Model.id }) |
+            @Html.ActionLink("Geri Dön", "Index")
+        </p>
+
+    </div>
+    <div class="col-md-3"></div>
+</div>

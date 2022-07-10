@@ -1,0 +1,42 @@
+﻿@model dentexpert.Models.Slider
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Detay</h2>
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Başlık</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+           <label>İçerik</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+           <label>Foto</label>
+        </dt>
+
+        <dd>
+            <img src="@Model.image" width="50" height="50"/>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Geri Dön", "Index")
+</p>

@@ -1,0 +1,55 @@
+﻿@model dentexpert.Models.Services
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <h3>Silmek istediğinize emin misiniz?</h3>
+        <div>
+            <h4>Services</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    <label>Başlık</label>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.title)
+                </dd>
+
+                <dt>
+                    <label>İçerik</label>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.description)
+                </dd>
+
+                <dt>
+                    <label>Foto</label>
+                </dt>
+
+                <dd>
+                    <img src="@Model.image" width="50" height="50" />
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Sil" class="btn btn-default" /> |
+                    @Html.ActionLink("Geri Dön", "Index")
+                </div>
+            }
+        </div>
+
+    </div>
+    <div class="col-md-3"></div>
+</div>

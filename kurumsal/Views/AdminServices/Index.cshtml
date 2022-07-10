@@ -1,0 +1,61 @@
+﻿@model IEnumerable<dentexpert.Models.Services>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <h2>Hizmetler</h2>
+
+        <p>
+            @Html.ActionLink("Hizmet Oluştur", "Create")
+        </p>
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    <label>Başlık</label>
+                </th>
+                <th>
+                  <label>İçerik</label>
+                </th>
+                <th>
+                   <label>Foto</label>
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.title)
+                    </td>
+                    <td>
+                        @if (item.description.Length>50)
+                        {
+                    <p>...</p>
+                }
+                else
+                {
+                    @item.description
+                }
+                    </td>
+                    <td>
+                        <img src="@item.image" width="50" height="50"/>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Düzenle", "Edit", new { id = item.id }) |
+                        @Html.ActionLink("Detay", "Details", new { id = item.id }) |
+                        @Html.ActionLink("Sil", "Delete", new { id = item.id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+    <div class="col-md-3"></div>
+</div>

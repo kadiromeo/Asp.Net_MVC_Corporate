@@ -1,0 +1,47 @@
+﻿@model List<dentexpert.Models.About>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-2"></div>
+
+    <div class="col-md-8">
+        <table class="table table-bordered mt-5">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Başlık</th>
+                    <th>Açıklama</th>
+                    <th>Foto</th>
+                    <th>Düzenle</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>@item.id</td>
+                        <td>@item.title</td>
+                        <td>
+                            @if (item.description.Length > 50)
+                            {
+                                <p>...</p>
+                            }
+                            else
+                            {
+                                @item.description
+                            }
+                        </td>
+                        <td>
+                            <img src="@item.image" width="50" height="50" />
+                        </td>
+                        <td><a href="/AdminAbout/Update/@item.id" class="btn btn-info">Düzenle</a></td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+    <div class="col-md-2"></div>
+</div>
